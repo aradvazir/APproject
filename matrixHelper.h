@@ -34,6 +34,21 @@ public:
         }
         return res;
     }
+    void wall_placer(int p, int q, int r)
+    {
+        if (r==1)
+        {
+            x[p][q]='w';
+            x[p+1][q]='w';
+            x[p-1][q]='w';
+        }
+        else if (r==2)
+        {
+            x[p][q]='w';
+            x[p][q+1]='w';
+            x[p][q-1]='w';
+        }
+    }
     void condition1(char A)
     {
         if (A=='R')

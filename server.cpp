@@ -45,7 +45,19 @@ int main(void)
         str= mat.convert_to_string();
         res.set_content(str, "text/plain");
     });
-    //---------------------------------------------------stop-----------------------------------------------------------------------------------
+    //-----------------------------------------------wall palcer------------------------------------------------------------------------------
+    srv.Get("wall", [](const Request& req, Response& res)
+    {
+        ifstream ff("index.txt");
+        int i, j, how;
+        ff >> i >> j >> how;
+        cout << i << ' ' << j << ' ' << how << endl;
+        mat.wall_placer(i, j, how);
+        string str;
+        str= mat.convert_to_string();
+        res.set_content(str, "text/plain");
+    });
+    //---------------------------------------------------stop---------------------------------------------------------------------------------
     srv.Get("stop", [&](const Request& req, Response& res) {
         srv.stop();
     });

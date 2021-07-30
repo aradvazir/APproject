@@ -30,20 +30,40 @@ int main(void) {
                 break;
             }
         }
-        string B;
-        cin >> B;
-        if (auto result = clientObject1.Get(B.data())) {
-            if ( result->status == 200 ) {
-                string s = result->body;
-                cout << s << endl;
-            }
-            else
-            {
-                cout << "there is something wrong. try again!" << endl;
-            }
+        int C;
+        cout << "1.place Wall \n 2.move" << endl;
+        cin >> C;
+        if (C==1)
+        {
+            int p, q, r;
+            cout << "enter the index and the way you like to place a wall: \n1.vertical \n2.horizonal" << endl;
+            cin >> p >> q >> r;
+            ofstream index_file("index.txt", ios:: binary);
+            index_file << p << ' ' << q << ' ' << r;
+            index_file.close();
+            clientObject1.Get("wall");
         }
-        else {
-            auto err = result.error();
+        else if (C==2)
+        {
+            string B;
+            cin >> B;
+            if (auto result = clientObject1.Get(B.data())) {
+                if ( result->status == 200 ) {
+                    string s = result->body;
+                    cout << s << endl;
+                    if (B!="print")
+                    {
+                        clientObject1.Get("stop");
+                    }
+                }
+                else
+                {
+                    cout << "there is something wrong. try again!" << endl;
+                }
+            }
+            else {
+                auto err = result.error();
+            }
         }
     }
 }
