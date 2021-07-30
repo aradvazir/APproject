@@ -31,7 +31,7 @@ int main(void) {
             }
         }
         int C;
-        cout << "1.place Wall \n 2.move" << endl;
+        cout << "1.place Wall\n 2.move" << endl;
         cin >> C;
         if (C==1)
         {
@@ -47,6 +47,11 @@ int main(void) {
         {
             string B;
             cin >> B;
+            if (B=="R" || B=="L" || B=="U" || B=="D")
+            {
+                cout << "try again" << endl;
+                break;
+            }
             if (auto result = clientObject1.Get(B.data())) {
                 if ( result->status == 200 ) {
                     string s = result->body;

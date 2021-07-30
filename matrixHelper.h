@@ -53,11 +53,20 @@ public:
     {
         if (A=='R')
         {
-            if (j1<10)
+            if (j1<10 && x[i1][j1+1]!='0' && x[i1][j1+1]!='w')
+            {
+                x[i1][j1]='0';
+                x[i1][j1+2]='A';
+            }
+            else if (j1<10 && x[i1][j1+1]!='w')
             {
                 x[i1][j1]='0';
                 x[i1][j1+1]='A';
                 j1+=1;
+            }
+            else if (x[i1][j1+1]=='w')
+            {
+                cout << "there is a wall, you can't move this way" << endl;
             }
             else
             {
@@ -66,11 +75,20 @@ public:
         }
         else if (A=='L')
         {
-            if (j1>0)
+            if (j1>0 && x[i1][j1-1]!='0' && x[i1][j1-1]!='w')
+            {
+                x[i1][j1]='0';
+                x[i1][j1-2]='A';
+            }
+            else if (j1>0 && x[i1][j1-1]!='w')
             {
                 x[i1][j1]='0';
                 x[i1][j1-1]='A';
                 j1-=1;
+            }
+            else if (x[i1][j1-1]=='w')
+            {
+                cout << "there is a wall, you can't move this way" << endl;
             }
             else
             {
@@ -79,11 +97,20 @@ public:
         }
         else if (A=='U')
         {
-            if (i1>0)
+            if (i1>0 && x[i1-1][j1]!='0' && x[i1-1][j1]!='w')
+            {
+                x[i1][j1]='0';
+                x[i1-2][j1]='A';
+            }
+            else if (i1>0 && x[i1-1][j1]=='w')
             {
                 x[i1][j1]='0';
                 x[i1-1][j1]='A';
                 i1-=1;
+            }
+            else if (x[i1-1][j1]=='w')
+            {
+                cout << "there is a wall, you can't move this way" << endl;
             }
             else
             {
@@ -92,11 +119,20 @@ public:
         }
         else if (A=='D')
         {
-            if (i1<10)
+            if (i1<10 && x[i1+1][j1]!='0' && x[i1+1][j1]!='w')
+            {
+                x[i1][j1]='0';
+                x[i1+2][j1]='A';
+            }
+            else if (i1<10 && x[i1][j1+1]!='w')
             {
                 x[i1][j1]='0';
                 x[i1+1][j1]='A';
                 i1+=1;
+            }
+            else if (x[i1][j1+1]=='w')
+            {
+                cout << "there is a wall, you can't move this way" << endl;
             }
             else
             {
