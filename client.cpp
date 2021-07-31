@@ -43,7 +43,7 @@ int main(void) {
             break;
         }
         int C;
-        cout << "1.place Wall\n 2.move" << endl;
+        cout << "1.place Wall\n2.move" << endl;
         cin >> C;
         if (C==1)
         {
