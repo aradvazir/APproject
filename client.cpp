@@ -4,11 +4,17 @@
 using namespace std;
 using namespace httplib;
 
+int hase_enterd_wrong=0;
 int main(void) {
     int port;
+    hase_enterd_wrong=0;
     ifstream file1("PortFile.txt", ios :: binary);
     file1 >> port;
     file1.close();
+    if (hase_enterd_wrong)
+    {
+        port-=1;
+    }
 
     cout << port << endl;
 
@@ -82,46 +88,51 @@ int main(void) {
                 cout << "try again" << endl;
                 cin >> B;
             }
-            // if (B=="R")
-            // {
-            //     string s;
-            //     s = "can_move_R" + to_string(port);
-            //     if (!clientObject.Get(s))
-            //     {
-            //         cout << "try again" << endl;
-            //         cin >> B;
-            //     }
-            // }
-            // if (B=="L")
-            // {
-            //     string s;
-            //     s= "can_move_L" + to_string(port);
-            //     if (!clientObject.Get(s))
-            //     {
-            //         cout << "try again" << endl;
-            //         cin >> B;
-            //     }
-            // }
-            // if (B=="U")
-            // {
-            //     string s;
-            //     s = "can_move_U" + to_string(port);
-            //     if (!clientObject.Get(s))
-            //     {
-            //         cout << "try again" << endl;
-            //         cin >> B;
-            //     }
-            // }
-            // if (B=="D")
-            // {
-            //     string s;
-            //     s = "can_move_D" + to_string(port);
-            //     if (!clientObject.Get(s))
-            //     {
-            //         cout << "try again" << endl;
-            //         cin >> B;
-            //     }
-            // }
+            if (B=="R")
+            {
+                string s;
+                s = "can_move_R" + to_string(port);
+                if (!clientObject.Get(s.data()))
+                {
+                    cout << "try again" << endl;
+                    hase_enterd_wrong=1;
+                    continue;
+                }
+            }
+            else if (B=="L")
+            {
+                string s;
+                s= "can_move_L" + to_string(port);
+                if (!clientObject.Get(s.data()))
+                {
+                    cout << "try again" << endl;
+                    cin >> B;
+                    hase_enterd_wrong=1;
+                    continue;
+                }
+            }
+            else if (B=="U")
+            {
+                string s;
+                s = "can_move_U" + to_string(port);
+                if (!clientObject.Get(s.data()))
+                {
+                    cout << "try again" << endl;
+                    hase_enterd_wrong=1;
+                    continue;
+                }
+            }
+            else if (B=="D")
+            {
+                string s;
+                s = "can_move_D" + to_string(port);
+                if (!clientObject.Get(s.data()))
+                {
+                    cout << "try again" << endl;
+                    hase_enterd_wrong=1;
+                    continue;
+                }
+            }
             B+=to_string(port);
             if (auto result = clientObject.Get(B.data())) {
                 if ( result->status == 200 ) {

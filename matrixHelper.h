@@ -72,7 +72,7 @@ public:
     }
     string can_go_r1()
     {
-        if (x[i1][j1+1]=='0')
+        if (x[i1][j1+1]=='0' && x[i1][j1+1]!='w')
         {
             return "1";
         }
@@ -83,7 +83,7 @@ public:
     }
     string can_go_l1()
     {
-        if (x[i1][j1-1]=='0')
+        if (x[i1][j1-1]=='0' && x[i1][j1-1]!='w')
         {
             return "1";
         }
@@ -94,7 +94,7 @@ public:
     }
     string can_go_d1()
     {
-        if (x[i1+1][j1]=='0')
+        if (x[i1+1][j1]=='0' && x[i1+1][j1]!='w')
         {
             return "1";
         }
@@ -105,7 +105,7 @@ public:
     }
     string can_go_u1()
     {
-        if (x[i1-1][j1]=='0')
+        if (x[i1-1][j1]=='0' && x[i1-1][j1]!='w')
         {
             return "1";
         }
@@ -116,7 +116,7 @@ public:
     }
     string can_go_r2()
     {
-        if (x[i2][j2+1]=='0')
+        if (x[i2][j2+1]=='0' && x[i2][j2+1]!='w')
         {
             return "1";
         }
@@ -127,7 +127,7 @@ public:
     }
     string can_go_l2()
     {
-        if (x[i2][j2-1]=='0')
+        if (x[i2][j2-1]=='0' && x[i2][j2-1]!='w')
         {
             return "1";
         }
@@ -138,7 +138,7 @@ public:
     }
     string can_go_d2()
     {
-        if (x[i2+1][j2]=='0')
+        if (x[i2+1][j2]=='0' && x[i2+1][j2]!='w')
         {
             return "1";
         }
@@ -149,7 +149,7 @@ public:
     }
     string can_go_u2()
     {
-        if (x[i2-1][j2]=='0')
+        if (x[i2-1][j2]=='0' && x[i2-1][j2]!='w')
         {
             return "1";
         }
@@ -160,7 +160,7 @@ public:
     }
     string can_go_r3()
     {
-        if (x[i3][j3+1]=='0')
+        if (x[i3][j3+1]=='0' && x[i3][j3+1]!='w')
         {
             return "1";
         }
@@ -171,7 +171,7 @@ public:
     }
     string can_go_l3()
     {
-        if (x[i3][j3-1]=='0')
+        if (x[i3][j3-1]=='0' && x[i3][j3-1]!='w')
         {
             return "1";
         }
@@ -182,7 +182,7 @@ public:
     }
     string can_go_d3()
     {
-        if (x[i3+1][j3]=='0')
+        if (x[i3+1][j3]=='0' && x[i3+1][j3]!='w')
         {
             return "1";
         }
@@ -193,7 +193,7 @@ public:
     }
     string can_go_u3()
     {
-        if (x[i3-1][j3]=='0')
+        if (x[i3-1][j3]=='0' && x[i3-1][j3]!='w')
         {
             return "1";
         }
@@ -204,7 +204,7 @@ public:
     }
     string can_go_r4()
     {
-        if (x[i4][j4+1]=='0')
+        if (x[i4][j4+1]=='0' && x[i4][j4+1]!='w')
         {
             return "1";
         }
@@ -215,7 +215,7 @@ public:
     }
     string can_go_l4()
     {
-        if (x[i4][j4-1]=='0')
+        if (x[i4][j4-1]=='0' && x[i4][j4-1]=='0')
         {
             return "1";
         }
@@ -226,7 +226,7 @@ public:
     }
     string can_go_d4()
     {
-        if (x[i4+1][j4]=='0')
+        if (x[i4+1][j4]=='0' && x[i4+1][j4]!='w')
         {
             return "1";
         }
@@ -237,7 +237,7 @@ public:
     }
     string can_go_u4()
     {
-        if (x[i4-1][j4]=='0')
+        if (x[i4-1][j4]=='0' && x[i4-1][j4]!='w')
         {
             return "1";
         }
