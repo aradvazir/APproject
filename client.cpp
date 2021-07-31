@@ -112,7 +112,6 @@ int main(void) {
                     if ((res -> body)=="")
                     {
                         cout << "try again" << endl;
-                        cin >> B;
                         hase_enterd_wrong=1;
                         continue;
                     }
