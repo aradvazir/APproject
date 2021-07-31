@@ -91,45 +91,61 @@ int main(void) {
             {
                 string s;
                 s = "can_move_R" + to_string(port);
-                if (!clientObject.Get(s.data()))
+                auto res= clientObject.Get(s.data());
+                if (res->status==200)
                 {
-                    cout << "try again" << endl;
-                    hase_enterd_wrong=1;
-                    continue;
+                    if ((res -> body)=="")
+                    {
+                        cout << "try again" << endl;
+                        hase_enterd_wrong=1;
+                        continue;
+                    }
                 }
             }
             else if (B=="L")
             {
                 string s;
                 s= "can_move_L" + to_string(port);
-                if (!clientObject.Get(s.data()))
+                auto res= clientObject.Get(s.data());
+                if (res->status == 200)
                 {
-                    cout << "try again" << endl;
-                    cin >> B;
-                    hase_enterd_wrong=1;
-                    continue;
+                    if ((res -> body)=="")
+                    {
+                        cout << "try again" << endl;
+                        cin >> B;
+                        hase_enterd_wrong=1;
+                        continue;
+                    }
                 }
             }
             else if (B=="U")
             {
                 string s;
                 s = "can_move_U" + to_string(port);
-                if (!clientObject.Get(s.data()))
+                auto res = clientObject.Get(s.data());
+                if (res-> status ==200)
                 {
-                    cout << "try again" << endl;
-                    hase_enterd_wrong=1;
-                    continue;
+                    if ((res -> body)=="")
+                    {
+                        cout << "try again" << endl;
+                        hase_enterd_wrong=1;
+                        continue;
+                    }
                 }
             }
             else if (B=="D")
             {
                 string s;
                 s = "can_move_D" + to_string(port);
-                if (!clientObject.Get(s.data()))
+                auto res = clientObject.Get(s.data());
+                if (res->status == 200)
                 {
-                    cout << "try again" << endl;
-                    hase_enterd_wrong=1;
-                    continue;
+                    if ((res -> body)=="")
+                    {
+                        cout << "try again" << endl;
+                        hase_enterd_wrong=1;
+                        continue;
+                    }
                 }
             }
             B+=to_string(port);
