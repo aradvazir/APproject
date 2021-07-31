@@ -7,7 +7,6 @@ using namespace httplib;
 int hase_enterd_wrong=0;
 int main(void) {
     int port;
-    hase_enterd_wrong=0;
     ifstream file1("PortFile.txt", ios :: binary);
     file1 >> port;
     file1.close();
@@ -15,6 +14,7 @@ int main(void) {
     {
         port-=1;
     }
+    hase_enterd_wrong=0;
 
     cout << port << endl;
 
