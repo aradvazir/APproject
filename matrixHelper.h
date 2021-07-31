@@ -78,7 +78,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_l1()
@@ -89,7 +89,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_d1()
@@ -100,7 +100,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_u1()
@@ -111,7 +111,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_r2()
@@ -122,7 +122,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_l2()
@@ -133,7 +133,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_d2()
@@ -144,7 +144,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_u2()
@@ -155,7 +155,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_r3()
@@ -166,7 +166,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_l3()
@@ -177,7 +177,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_d3()
@@ -188,7 +188,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_u3()
@@ -199,7 +199,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_r4()
@@ -210,7 +210,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_l4()
@@ -221,7 +221,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_d4()
@@ -232,7 +232,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     string can_go_u4()
@@ -243,7 +243,7 @@ public:
         }
         else
         {
-            return "";
+            return NULL;
         }
     }
     void condition1(char A)

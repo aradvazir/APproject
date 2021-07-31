@@ -15,7 +15,6 @@ int main(void) {
         port-=1;
     }
     hase_enterd_wrong=0;
-
     cout << port << endl;
 
     ofstream file2("PortFile.txt", ios :: binary);
