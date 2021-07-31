@@ -1,21 +1,32 @@
 #include <httplib.h>
+#include <fstream>
 
 using namespace std;
 using namespace httplib;
 
 int main(void) {
-    Client clientObject("localhost", 8080);
+    int port;
+    ifstream file1("PortFile.txt", ios :: binary);
+    file1 >> port;
+    file1.close();
+
+    cout << port << endl;
+
+    ofstream file2("PortFile.txt", ios :: binary);
+    file2 << port+1;
+    file2.close();
+    Client clientObject("localhost", port);
     while (true)
     {
         int endgame=0;
         while(true)
         {
             sleep(1);
-            if (!clientObject.Get("print"))
+            if (!clientObject.Get("print8080"))
             {}
             else
             {
-                if ( auto result = clientObject.Get("print")) {
+                if ( auto result = clientObject.Get("print8080")) {
                     if ( result->status == 200 ) {
                         string s = result->body;
                         cout << s << endl;
@@ -54,16 +65,64 @@ int main(void) {
             index_file << p << ' ' << q << ' ' << r;
             index_file.close();
             clientObject.Get("wall");
+            if (auto result = clientObject.Get("print8080")) {
+                if ( result->status == 200 ) {
+                    string s = result->body;
+                    cout << s << endl;
+                }
+            }
+            clientObject.Get("stop");
         }
         else if (C==2)
         {
             string B;
             cin >> B;
-            if (B=="R" || B=="L" || B=="U" || B=="D")
+            while (!(B=="R" || B=="L" || B=="U" || B=="D"))
             {
                 cout << "try again" << endl;
-                break;
+                cin >> B;
             }
+            // if (B=="R")
+            // {
+            //     string s;
+            //     s = "can_move_R" + to_string(port);
+            //     if (!clientObject.Get(s))
+            //     {
+            //         cout << "try again" << endl;
+            //         cin >> B;
+            //     }
+            // }
+            // if (B=="L")
+            // {
+            //     string s;
+            //     s= "can_move_L" + to_string(port);
+            //     if (!clientObject.Get(s))
+            //     {
+            //         cout << "try again" << endl;
+            //         cin >> B;
+            //     }
+            // }
+            // if (B=="U")
+            // {
+            //     string s;
+            //     s = "can_move_U" + to_string(port);
+            //     if (!clientObject.Get(s))
+            //     {
+            //         cout << "try again" << endl;
+            //         cin >> B;
+            //     }
+            // }
+            // if (B=="D")
+            // {
+            //     string s;
+            //     s = "can_move_D" + to_string(port);
+            //     if (!clientObject.Get(s))
+            //     {
+            //         cout << "try again" << endl;
+            //         cin >> B;
+            //     }
+            // }
+            B+=to_string(port);
             if (auto result = clientObject.Get(B.data())) {
                 if ( result->status == 200 ) {
                     string s = result->body;
@@ -74,7 +133,7 @@ int main(void) {
                         clientObject.Get("stop");
                         break;
                     }
-                    if (B!="print")
+                    if (B!="print8080" && B!="print8081" && B!="print8082" && B!="print8083")
                     {
                         clientObject.Get("stop");
                     }
